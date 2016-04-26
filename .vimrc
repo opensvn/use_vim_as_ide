@@ -23,7 +23,7 @@
 
     let mapleader=","
 
-"}
+" }
 
 
 " 文件类型侦测 {
@@ -33,7 +33,7 @@
     " 根据侦测到的不同类型加载对应的插件
     filetype plugin on
 
-"}
+" }
 
 
 " vim 自身（非插件）快捷键 {
@@ -71,14 +71,14 @@
     " 定义快捷键在结对符之间跳转
     nmap <Leader>M %
 
-"}
+" }
 
 
 " 让配置变更立即生效 {
 
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
-"}
+" }
 
 
 " 其他 {
@@ -100,7 +100,7 @@
         au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
     endif
 
-"}
+" }
 
 
 " 插件安装 {
@@ -145,18 +145,17 @@
     call vundle#end()
     filetype plugin indent on
 
-"}
+" }
 
 
 " 配色方案 {
 
-set background=dark
-"colorscheme jellybeans
-"colorscheme solarized
-colorscheme molokai
-"colorscheme phd
+    set background=dark
+    "colorscheme solarized
+    colorscheme molokai
+    "colorscheme phd
 
-"}
+" }
 
 
 " 营造专注气氛 {
@@ -183,7 +182,7 @@ colorscheme molokai
     "" 启动 vim 时自动全屏
     "autocmd VimEnter * call ToggleFullscreen()
 
-"}
+" }
 
 
 " 辅助信息 {
@@ -204,7 +203,7 @@ colorscheme molokai
     " 高亮显示搜索结果
     set hlsearch
 
-"}
+" }
 
 
 " 其他美化 {
@@ -218,7 +217,7 @@ colorscheme molokai
     " 设置状态栏主题风格
     let g:Powerline_colorscheme='solarized256'
 
-"}
+" }
 
 
 " 语法分析 {
@@ -228,7 +227,7 @@ colorscheme molokai
     " 允许用指定语法高亮配色方案替换默认方案
     syntax on
 
-"}
+" }
 
 
 " 缩进 {
@@ -255,7 +254,7 @@ colorscheme molokai
     " 快捷键 i 开/关缩进可视化
     "nmap <silent> <Leader>i <Plug>IndentGuidesToggle
 
-"}
+" }
 
 
 " 代码折叠 {
@@ -266,7 +265,7 @@ colorscheme molokai
     " 启动 vim 时关闭折叠代码
     set nofoldenable
 
-"}
+" }
 
 
 " 接口与实现快速切换 {
@@ -274,7 +273,7 @@ colorscheme molokai
     " *.cpp 和 *.h 间切换
     nmap <silent> <Leader>sw :FSHere<cr>
 
-"}
+" }
 
 
 " 代码收藏 {
@@ -304,7 +303,7 @@ colorscheme molokai
             \ 'ListLocalMarkers'   :  "m?"
             \ }
 
-"}
+" }
 
 
 " 标签列表 {
@@ -353,7 +352,7 @@ colorscheme molokai
          \ }
     \ }
 
-"}
+" }
 
 
 " 代码导航 {
@@ -378,7 +377,7 @@ colorscheme molokai
     nnoremap <leader>je :YcmCompleter GoToDefinitionElseDeclaration<CR>
     nmap <F4> :YcmDiags<CR>
 
-"}
+" }
 
 
 " 查找 {
@@ -386,7 +385,7 @@ colorscheme molokai
     " 使用 ctrlsf.vim 插件在工程内全局查找光标所在关键字，设置快捷键。快捷键速记法：search in project
     nnoremap <Leader>sp :CtrlSF<CR>
 
-"}
+" }
 
 
 " 内容替换 {
@@ -427,7 +426,7 @@ colorscheme molokai
     nnoremap <Leader>rcw :call Replace(1, 1, input('Replace '.expand('<cword>').' with: '))<CR>
     nnoremap <Leader>rwc :call Replace(1, 1, input('Replace '.expand('<cword>').' with: '))<CR>
 
-"}
+" }
 
 " 模板补全 {
 
@@ -437,7 +436,17 @@ colorscheme molokai
     let g:UltiSnipsJumpForwardTrigger="<leader><tab>"
     let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
 
-"}
+" }
+
+
+" 标准库标签补全 {
+
+    let OmniCpp_DefaultNamespaces = ["_GLIBCXX_STD"]
+    set tags+=~/stdcpp.tags
+    set tags+=~/sys.tags
+
+" }
+
 
 " YCM 补全 {
 
@@ -474,7 +483,7 @@ colorscheme molokai
     " 语法关键字补全
     let g:ycm_seed_identifiers_with_syntax=1
 
-"}
+" }
  
 
 " 由接口快速生成实现框架 {
@@ -482,7 +491,7 @@ colorscheme molokai
     " 成员函数的实现顺序与声明顺序一致
     let g:disable_protodef_sorting=1
 
-"}
+" }
 
 
 " 库信息参考 {
@@ -493,7 +502,7 @@ colorscheme molokai
     " 定义:Man命令查看各类man信息的快捷键
     nmap <Leader>man :Man 3 <cword><CR>
 
-"}
+" }
 
 
 " 工程文件浏览 {
@@ -511,7 +520,7 @@ colorscheme molokai
     " 删除文件时自动删除文件对应 buffer
     let NERDTreeAutoDeleteBuffer=1
 
-"}
+" }
 
 
 " 多文档编辑 {
@@ -523,7 +532,7 @@ colorscheme molokai
     map <C-Tab> :MBEbn<cr>
     map <C-S-Tab> :MBEbp<cr>
 
-"}
+" }
 
 
 " 环境恢复 {
@@ -543,15 +552,15 @@ colorscheme molokai
     "map <leader>rs :source my.vim<cr> :rviminfo my.viminfo<cr>
     map <leader>rs :source my.vim<cr>
 
-"}
+" }
 
  
 " 设置快捷键实现一键编译及运行 {
 
-    nmap <Leader>m :wa<CR> :cd build/<CR> :!rm -rf main<CR> :!cmake CMakeLists.txt<CR>:make<CR><CR> :cw<CR> :cd ..<CR>
-    nmap <Leader>g :wa<CR>:cd build/<CR>:!rm -rf main<CR>:!cmake CMakeLists.txt<CR>:make<CR><CR>:cw<CR>:cd ..<CR>:!build/main<CR>
+    nmap <Leader>m :wa<CR> :cd build/<CR> :!cmake ..<CR> :make<CR><CR> :cw<CR> :cd ..<CR>
+    "nmap <Leader>g :wa<CR> :cd build/<CR> :!cmake ..<CR> :make<CR><CR>: cw<CR> :cd ..<CR> :!build/main<CR>
 
-"}
+" }
 
 
 " 快速选中结对符内的文本 {
@@ -563,11 +572,11 @@ colorscheme molokai
     " 适用于哪些结对符
     let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "i>", "ip"]
 
-"}
+" }
 
 
 " 调用 gundo 树 {
 
     nnoremap <Leader>ud :GundoToggle<CR>
 
-"}
+" }
