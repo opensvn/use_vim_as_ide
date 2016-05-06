@@ -603,14 +603,15 @@
         "elseif &filetype == 'mkd'
             "call setline(1,"<head><meta charset=\"UTF-8\"></head>")
 	    else 
-		    call setline(1, "/*******************************************************************************") 
-		    call append(line("."), "* filename: ".expand("%")) 
-		    call append(line(".")+1, "* author: opensvn") 
-		    call append(line(".")+2, "* created on: ".strftime("%c"))
-		    call append(line(".")+3, "* license: GPLv2") 
-		    call append(line(".")+4, "* brief description: ")   
-		    call append(line(".")+5, "*******************************************************************************/") 
-		    call append(line(".")+6, "")
+		    call setline(1, "/// \\file ".expand("%s")) 
+		    call append(line("."), "/// \\brief") 
+		    call append(line(".")+1, "///") 
+		    call append(line(".")+2, "/// A detailed file description.")
+		    call append(line(".")+3, "///") 
+		    call append(line(".")+4, "/// \\author opensvn")   
+		    call append(line(".")+5, "/// \\version 0.0.1") 
+		    call append(line(".")+6, "/// \\date ".strftime("%c"))
+            call append(line(".")+7, "")
 	    endif
 	    "if expand("%:e") == 'cpp'
 		"    call append(line(".")+6, "#include<iostream>")
