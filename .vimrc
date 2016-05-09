@@ -445,7 +445,7 @@
 
     let OmniCpp_DefaultNamespaces = ["_GLIBCXX_STD"]
     set tags+=~/stdcpp.tags
-    set tags+=~/sys.tags
+    "set tags+=~/sys.tags
 
 " }
 
